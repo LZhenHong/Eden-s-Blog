@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:blog}",
+      "name": "Debug blog",
+      "program": "${workspaceFolder:blog}/.build/debug/blog",
+      "preLaunchTask": "swift: Build Debug blog"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:blog}",
+      "name": "Release blog",
+      "program": "${workspaceFolder:blog}/.build/release/blog",
+      "preLaunchTask": "swift: Build Release blog"
+    }
+  ]
+}
