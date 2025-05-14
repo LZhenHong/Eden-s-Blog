@@ -28,7 +28,7 @@ iOS 为三类适合在后台运行的 App 提供很好的支持，这三类 App 
 
 **Starting a background task at quit time**
 
-```
+```objectivec
 @property (nonatomic, assign) UIBackgroundTaskIdentifier bgTask;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

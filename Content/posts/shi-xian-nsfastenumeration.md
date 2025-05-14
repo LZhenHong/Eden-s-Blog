@@ -18,7 +18,7 @@ isTop: false
 
 要实现 `NSFastEnumeration`  协议，我们先看下内部实现，将下面的代码 `clang -rewrite-objc main.m` 成 C++ 代码。
 
-```
+```objectivec
 NSArray *array = @[@1, @2, @3];
 for (NSNumber *number in array) {
    NSLog(@"%@", number);
@@ -27,7 +27,7 @@ for (NSNumber *number in array) {
 
 得到的 main.cpp 文件，我将代码改了一下，看起来比较友好一点。
 
-```
+```c
 NSArray *array = @[@1, @2, @3];
 NSNumber *number;
 
@@ -73,7 +73,7 @@ if (limit) {
 
 ### 在内存空间中是连续的
 
-```
+```objectivec
 @interface TestArray: NSObject
 @end
 
@@ -107,7 +107,7 @@ if (limit) {
 
 ### 在内存空间中是不连续的
 
-```
+```objectivec
 @interface TestLinkedList: NSObject
 @end
 

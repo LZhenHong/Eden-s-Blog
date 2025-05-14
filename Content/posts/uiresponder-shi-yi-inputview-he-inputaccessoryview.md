@@ -21,7 +21,7 @@ isTop: false
 
 现在假设当我们点击 `UITextField` 之后，显示出来的是一个 `UIDatePicker`。大概的实现代码：
 
-```
+```objectivec
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, strong) UIDatePicker *datePicker;
@@ -54,7 +54,7 @@ isTop: false
 
 我们自己来添加一个 `inputAccessoryView`，大概的代码实现：
 
-```
+```objectivec
 @interface ViewController () 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, strong) UIToolbar *toolBar;
@@ -101,7 +101,7 @@ isTop: false
 
 我们看一下  `inputView` 和 `inputAccessoryView` 在 `UIResponder` 的声明：
 
-```
+```objectivec
 // Called and presented when object becomes first responder.  Goes up the responder chain.
 @property (nullable, nonatomic, readonly, strong) __kindof UIView *inputView NS_AVAILABLE_IOS(3_2);
 @property (nullable, nonatomic, readonly, strong) __kindof UIView *inputAccessoryView NS_AVAILABLE_IOS(3_2);
@@ -111,7 +111,7 @@ isTop: false
 
 假设我们点击一个 button 时，要显示一个 `UIDatePicker`，大概的代码实现：
 
-```
+```objectivec
 @interface TSButton : UIButton
 @property (nonatomic, strong, readwrite, nullable) UIView *inputView;
 @property (nonatomic, strong, readwrite, nullable) UIView *inputAccessoryView;
@@ -176,7 +176,7 @@ isTop: false
 
 在 `UIResponder` 还有 `inputViewController` 和 `inputAccessoryViewController` 属性，这两个属性跟自定义键盘有关。下面是它们在 `UIResponder` 中的声明：
 
-```
+```objectivec
 // For viewController equivalents of -inputView and -inputAccessoryView
 // Called and presented when object becomes first responder.  Goes up the responder chain.
 @property (nullable, nonatomic, readonly, strong) UIInputViewController *inputViewController NS_AVAILABLE_IOS(8_0);

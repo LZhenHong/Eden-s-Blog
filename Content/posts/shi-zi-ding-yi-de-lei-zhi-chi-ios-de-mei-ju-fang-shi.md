@@ -21,7 +21,7 @@ isTop: false
 
 ## C 语言风格
 
-```
+```objectivec
 NSArray *nums = @[@1, @2, @3];
 for (int i = 0; i < nums.count, ++i) {
     NSLog(@"%@", nums[i]);
@@ -32,7 +32,7 @@ for (int i = 0; i < nums.count, ++i) {
 
 要支持这种 C 语言风格遍历就需要实现 `objectAtIndexedSubscript:` 方法，这是因为编译器会将 `someArray[0]` 解析成 `[someArray objectAtIndexedSubscript:0]`。
 
-```
+```objectivec
 @interface TestArray: NSObject
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 @end
@@ -54,7 +54,7 @@ for (int i = 0; i < nums.count, ++i) {
 
 ## NSEnumerator
 
-```
+```objectivec
 NSArray *numberArray = @[@1, @2, @3];
 NSEnumerator *enumerator = [numberArray objectEnumerator];
 NSNumber *number;
@@ -67,7 +67,7 @@ while (number = [enumerator nextObject]) {
 
 要支持这种遍历方式主要还是实现一个 `objectEnumerator` 方法返回 `NSEnumerator` 对象。这里的 `NSEnumerator` 是抽象类，需要继承 `NSEnumerator` 然后实现 `-nextObject:` 方法。
 
-```
+```objectivec
 @interface TestEnumerator: NSEnumerator
 @property (nonatomic, readonly) TestArray *array;
 
@@ -121,7 +121,7 @@ while (number = [enumerator nextObject]) {
 
 ## 基于 block 的遍历
 
-```
+```objectivec
 NSArray *array = @[@1, @2, @3];
 [array enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
     NSLog(@"%@", object);
@@ -130,7 +130,7 @@ NSArray *array = @[@1, @2, @3];
 
 这种遍历是现在经常使用的方式，而且这种方式还提供了很多有用的特性。
 
-```
+```objectivec
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)opts usingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block
 ```
 
@@ -140,7 +140,7 @@ NSArray *array = @[@1, @2, @3];
 
 ## NSFastEnumeration
 
-```
+```objectivec
 NSArray *array = @[@1, @2, @3];
 for (NSNumber *number in array) {
     NSLog(@"%@", number);
@@ -151,7 +151,7 @@ for (NSNumber *number in array) {
 
 支持这种遍历模式的对象需要遵守 `NSFastEnumeration` 协议，并实现方法：
 
-```
+```objectivec
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len;
 ```
 
@@ -159,7 +159,7 @@ for (NSNumber *number in array) {
 
 * state: 这是个 `NSFastEnumerationState` 的结构体，申明如下：
 
-```
+```objectivec
 typedef struct {
     // 在第一次调用 `countByEnumeratingWithState:objects:count:` 方法时，state 为 0，
     // 这个在遍历的时候用不到，可以用来存储额外信息

@@ -19,7 +19,7 @@ isTop: false
 
 这个方法是 ccui.Widget 的方法，在文档中的描述就是会触发控件是否忽略自定义的 `contentSize`，在这个类中这个方法的定义如下：
 
-```
+```javascript
 ignoreContentAdaptWithSize: function(ignore) {
     if (this._unifySize) {
         this.setContentSize(this._customSize);
@@ -38,7 +38,7 @@ ignoreContentAdaptWithSize: function(ignore) {
 
 关于 `getVirtualRendererSize` 方法，每个控件的实现方式不同，下面举两个控件的实现方式：
 
-```
+```javascript
 // UIButton.js:180
 getVirtualRendererSize: function() {
     if (this._unifySize)
@@ -55,7 +55,7 @@ getVirtualRendererSize: function() {
 
 从 Button 的实现可以看出，在忽略 `this._unifySize` 的情况下，如果 Button 没有加载过纹理，就用设置的文字的大小来作为 Button 的大小。如果加载过纹理，则使用纹理的 `contentSize` 来作为 Button 的 `contentSize`。
 
-```
+```javascript
 // UIText.js:341
 getVirtualRendererSize: function() {
     return this._labelRenderer.getContentSize();
@@ -74,7 +74,7 @@ Text 的实现方式相比于 Button 就更简单了，直接使用文字的大�
 
 这个方法是在 Node 中定义的，这个方法在文档中的描述是：控制在设置 Node 位置时，锚点是否是始终为 (0, 0)；文档还说这个方法是内部使用的方法，只在 Layer 和 Scene 中使用，不要在外部调用此方法。在 Node 中的具体定义如下：
 
-```
+```javascript
 ignoreAnchorPointForPosition: function(newValue) {
     if (newValue !== this._ignoreAnchorPointForPosition) {
         this._ignoreAnchorPointForPosition = newValue;
@@ -96,7 +96,7 @@ ignoreAnchorPointForPosition: function(newValue) {
 
 看下 ScrollView 中的 `setContentSize` 函数的实现：
 
-```
+```javascript
 setContentSize: function(size, height) {
     if (this.getContainer() !== null) {
         if (height === undefined)
@@ -109,7 +109,7 @@ setContentSize: function(size, height) {
 ```
 这里的 `setContentSize` 方法不会直接设置 ScrollView 的 `contentSize`，而是设置 container 的 `contentSize`，这个 container 默认是 Layer，代表 ScrollView 的内容。`setContentOffset` 改变的也是 container 的 `position`，所以 `setContentSize` 不能改变 ScrollView 和 TableView 的可视区域。改变可视区域的方法是 `setViewSize`，实现如下：
 
-```
+```javascript
 setViewSize: function(size) {
     this._viewSize = size;
     cc.Node.prototype.setContentSize.call(this, size);
@@ -127,7 +127,7 @@ ScrollView 和 TableView 设置可视区域的函数是 `setViewSize`，设置�
 
 这个算是 JS 层面的坑，在 Cocos-JS 中采用的是 **John Resig's Simple Class Inheritance** 继承来实现的。我们来看一下在 Cocos-JS 的自定义 Node 的实现方式：
 
-```
+```javascript
 var MyNode = (function() {
 
     var node = cc.Node.extend({
@@ -149,7 +149,7 @@ var MyNode = (function() {
 
 上面这段代码看起来是没有什么问题的，但是我们如果创建多个 MyNode 对象，并同时对 data\_ 进行了一些操作，我们就会发现 data\_ 的数据跟我们预想的数据不太一样。这是因为这两个对象的 data\_ 实际上实际上是同一个对象，这就导致其中一个 MyNode 对象对 data\_ 进行了操作会影响到另一个对象的 data\_ 数据。可以通过下面的方式来避免这个情况的发生：
 
-```
+```javascript
 var MyNode = (function() {
 
     var node = cc.Node.extend({

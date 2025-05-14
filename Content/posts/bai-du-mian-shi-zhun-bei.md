@@ -53,7 +53,7 @@ load 方法务必实现得精简一些，也就是要尽量减少其所执行的
 
 `+ initialize` 方法只应该用来设置内部数据。不应该调用其他方法。若某个全局状态无法在编译期初始化，可以放在 `+ initialize`  方法中来做。
 
-```
+```objectivec
 // EOCClass.h
 #import <Foundation/Foundation.h>
 

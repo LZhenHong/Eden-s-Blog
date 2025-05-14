@@ -16,15 +16,20 @@ struct Website {
 struct EdenBlog: Site {
   var name = "Eden's Blog"
   var titleSuffix = " – Just Someone"
-  var url = URL(static: "https://www.example.com")
+  var url = URL(static: "https://lzhenhong.github.io")
   var builtInIconsEnabled = true
 
   var author = "Eden"
+
+  var syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [
+    .swift, .objectiveC, .c, .cSharp, .python,
+  ])
+  var useDefaultBootstrapURLs: BootstrapOptions { .remoteBootstrap }
 
   var homePage = Home()
   var layout = MainLayout()
 
   var articlePages: [any ArticlePage] {
-    CustomArticleLayout()
+    MarkdownArticleLayout()
   }
 }

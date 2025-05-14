@@ -24,7 +24,7 @@ UITableView 在第一次显示的时候，会调用  `-tableView:heightForRowAtI
 
 OK，已经处理到这样，应该没有问题了，运行程序，进入详情页面 UITableView 的位置没问题，项目这里有点赞的功能，问题又来了，点赞完之后需要刷新 UITableViewCell，这时我们能看到一个非常神奇的现象，就是刷新这一行 cell 之后，UITableView 会滚动一段距离。~~WTF，这是什么鬼。~~因为我们给的预设高度只是一个近似值，刷新 UITableView 貌似会使用到预设高度，而不是使用真正的高度，所以这里 UITableView 会滚动，同样 Google 了一大圈，都说将 cell 的高度缓存起来，然后在 `-tableView:estimatedHeightForRowAtIndexPath:` 方法中返回，正好项目中用到了 **[UITableView+FDTemplateLayoutCell][5]** 来计算 cell 的高度，计算完高度之后会缓存起来，我们就利用这个来设置 UITableView 的预设高度。使用一个 flag 来标记是否利用 `UITableView+FDTemplateLayoutCell` 来返回预设高度。大概的实现代码：
 
-```
+```objectivec
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 

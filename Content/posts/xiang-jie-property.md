@@ -12,7 +12,7 @@ isTop: false
 <!-- more -->
 
 * 手动编写成员变量／存取方法
-```
+```objectivec
 @interface XYDog: NSObject {
     NSString *_name;
 }
@@ -32,7 +32,7 @@ isTop: false
 ```
 
 * Xcode 自动生成
-```
+```objectivec
 @interface XYDog: NSObject
 @property (nonatomic, copy) NSString *name;
 @end
@@ -77,7 +77,7 @@ isTop: false
 
 * 第一种
 
-```
+```objectivec
 @interface XYDog: NSObject
 @property (nonatomic, readonly) NSString *name;
 @end
@@ -95,7 +95,7 @@ isTop: false
 
 * 第二种
 
-```
+```objectivec
 @interface XYDog: NSObject
 @property (nonatomic, readonly) NSString *name;
 @end

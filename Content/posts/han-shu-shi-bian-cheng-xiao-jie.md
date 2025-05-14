@@ -38,7 +38,7 @@ int main() {
 
 尽管后续的一些语言中有 for-in 或者 for-of 的遍历方式，但跟 C 语言的 for 循环遍历也是差不多的，只是省去了我们从数组中取出元素的步骤，但是这样我们需要自己维护遍历索引。
 
-```c#
+```csharp
 using System;
 
 class TestArray

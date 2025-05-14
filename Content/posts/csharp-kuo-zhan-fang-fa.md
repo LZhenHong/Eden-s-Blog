@@ -7,6 +7,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
+
 为什么想要把 C# 的方法扩展单独拿出来讲一下呢？
 
 因为当我们学习一门新的编程语言时，很多时候都会拿这门编程语言跟我们熟悉的编程做对比。因为编程语言的设计者不同，编程思想和理念是存在很多差别的，就算是同样相同的面向对象的编程语言，也会在细节上存在各种差异。
@@ -21,7 +22,7 @@ isTop: false
 
 先了解一下 C# 中如何实现扩展方法：
 
-```c#
+```csharp
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -57,7 +58,7 @@ namespace Extension
 
 下面的例子来自《Effective C#》P125：
 
-```c#
+```csharp
 public static class Comparable
 {
     public static bool LessThan<T>(this T left, T right) where T : IComparable<T> => left.CompareTo(right) < 0;

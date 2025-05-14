@@ -18,7 +18,7 @@ isTop: false
 
 `NSNumber` 字面量支持有符号、没有符号的整数 (char, short, int, long, long long)，支持浮点数 (float, double)，也支持布尔值 (BOOL, C++ bool)。在 Objective-C 中，任何字母、数字和布尔值的字面量前面有 @ 都会被当成指向用 @ 后面的值创建的 `NSNumber` 对象。
 
-```
+```objectivec
 void main(int argc, const char *argv[]) {
     // character literals.
     NSNumber *theLetterZ = @'Z';          // equivalent to [NSNumber numberWithChar:'Z']
@@ -46,7 +46,7 @@ void main(int argc, const char *argv[]) {
 
 NSNumber 只支持数字前面带 @，举个例子：
 
-```
+```objectivec
 #define INT_MAX   2147483647  /* max value for an int */
 #define INT_MIN   (-2147483647-1) /* min value for an int */
 ```
@@ -55,7 +55,7 @@ NSNumber 字面量支持 `@INT_MAX`，但是不支持 `@INT_MIN`，因为 `INT_M
 
 以前，BOOL 值只是 `signed char` 的 `typedef`，YES 是 (BOOL)1，NO 是 (BOOL)0。但是为了支持 `@YES` 和 `@NO` 这种写法，这些宏被重新定义：
 
-```
+```objectivec
 #if __has_feature(objc_bool)
 #define YES             __objc_yes
 #define NO              __objc_no
@@ -73,7 +73,7 @@ Objective-C++ 还支持 `@true` 和 `@false` 表达式，跟 `@YES` 和 `@NO` �
 
 现在 iOS 开发中使用 OC 字符串，都可以很简单的创建：`NSString *str = @"some string.";`，但是这个其实是 @ 加上一个 C 类型的字符串生成 `NSString`，这个也就是 `NSString` 字面量。跟前面的 `NSNumber` 很像，当 @ 后面跟的表达式是 `(char *)` 或者是 `(const char *)` 类型的，这个嵌套表达式的结果就是指向 `NSString` 对象的指针，这个 `NSString` 对象跟 C 字符串包含相同的字符，并且是以 `\0` 结尾和 UTF-8 编码。有个例子是将 C 字符串风格的命令行参数转成 `NSString`：
 
-```
+```objectivec
 // Partition command line arguments into positional and option arguments.
 NSMutableArray *args = [NSMutableArray new];
 NSMutableDictionary *options = [NSMutableDictionary new];
@@ -93,7 +93,7 @@ while (--argc) {
 
 尽管枚举值是整数，但是枚举还是不能直接作为嵌套字面量使用，这样是为了避免前缀是 @ 符号的 Objective-C 关键字。枚举值必须放在嵌套表达式中，下面的例子表明了在字典中使用 `AVAudioRecorder` 枚举：
 
-```
+```objectivec
 enum {
   AVAudioQualityMin = 0,
   AVAudioQualityLow = 0x20,
@@ -110,7 +110,7 @@ enum {
 
 `@(AVAudioQualityMax)` 这种语法将 AVAudioQualityMax 转换成为整数类型，并转换成相应的值。如果枚举像下面一样申明了类型，则编译器会选择 `NSNumber` 正确的创建方法：
 
-```
+```objectivec
 typedef enum: unsigned char {
     Red,
     Green,
@@ -131,7 +131,7 @@ NSNumber *red = @(Red), *green = @(Green), *blue = @(Blue); // => [NSNumber numb
 
 数组对象还支持 C 语言的下标语法：
 
-```
+```objectivec
 NSMutableArray *array = ...;
 NSUInteger idx = ...;
 id newObject = ...;
@@ -145,7 +145,7 @@ array[idx] = newObject;         // replace oldObject with newObject
 
 使用字面量创建字典：
 
-```
+```objectivec
 NSDictionary *dictionary = @{
     @"name" : NSUserName(),
     @"date" : [NSDate date],
@@ -159,7 +159,7 @@ NSDictionary *dictionary = @{
 
 字典对象同样支持下标范围元素：
 
-```
+```objectivec
 NSMutableDictionary *dictionary = ...;
 NSString *key = ...;
 oldObject = dictionary[key];
@@ -176,7 +176,7 @@ NSValue 可以保存任何的数字类，例如：int/float/char，还可以保�
 
 如果你只想使用 NSValue 来包装你的数据结构，你可以不需要创建 NSValue 子类，使用分类是更好的选择。下面定义了 `Polyhedron` 结构体，并使用 NSValue 的分类方法来获得和储存 `Polyhedron` 结构体：
 
-```
+```objectivec
 typedef struct {
     int numFaces;
     float radius;
@@ -205,7 +205,7 @@ typedef struct {
 
 上面说了嵌套表达式支持 `NSValue`，而 `NSValue` 是支持结构体的，唯一的要求就是将结构体标记为 `objc_boxable`。
 
-```
+```objectivec
 struct __attribute__((objc_boxable)) Point {
     // ...
 };
@@ -241,7 +241,7 @@ NSValue *good_rect = @(r);      // ok
 
 还有一点就是要注意检查是否支持新语法：
 
-```
+```objectivec
 #if __has_feature(objc_array_literals)
     // new way.
     NSArray *elements = @[ @"H", @"He", @"O", @"C" ];

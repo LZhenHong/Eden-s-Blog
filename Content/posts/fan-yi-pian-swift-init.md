@@ -22,7 +22,7 @@ isTop: false
 
 让我们假定你有一个这样的类：
 
-```
+```swift
 class Foo {
   let coreDataStack: CoreDataStack
   let mfpService = MFPService()
@@ -33,7 +33,7 @@ class Foo {
 ```
 这样的类需要许多行来初始化所有的属性，所以我们会将初始化逻辑分成多个函数，可能像这样：
 
-```
+```swift
 init(coreDataStack stack: CoreDataStack) {
   coreDataStack = stack
   integrator = setupIntegrator(stack, provider: mfpService)
@@ -53,7 +53,7 @@ init(coreDataStack stack: CoreDataStack) {
 
 ## 选择 1 - 对可选变量隐式解包
 
-```
+```swift
 var integrator: IntegrationService!
 ```
 
@@ -66,7 +66,7 @@ var integrator: IntegrationService!
 
 我们用隐藏的懒加载属性，但是可能会有副作用
 
-```
+```swift
 class Foo_lazy {
   let coreDataStack: CoreDataStack
   let mfpService = MFPService()
@@ -110,7 +110,7 @@ class Foo_lazy {
 
 我们可以定义隐私的静态方法，用它们来初始化属性(并且可以将它们放在隐私的类扩展中)：
 
-```
+```swift
 class Foo_ext {
   let coreDataStack: CoreDataStack
   let mfpService = MFPService()

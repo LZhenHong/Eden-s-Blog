@@ -41,7 +41,7 @@ Unity 在运行期间会默认构建一个程序域 AppDomain，程序域中是�
 
 Unity 会将未放在 StreamingAssets 路径下的程序集都加载到默认的程序域中，如果将热更新的 DLL 文件放在其他目录下，随后再去加载热更新 DLL，这种方式热更新的 DLL 不会生效，Unity 使用的还是之前的热更新 DLL 文件。如果不考虑不支持 JIT 的平台，其实也可以用利用 C# 动态加载 DLL 来实现热更新。如下所示：
 
-```C#
+```csharp
 string dllPath = "{DLL_Path}";
 var dllUri = new Uri(dllPath);
 UnityWebRequest webRequest = UnityWebRequest.Get(dllUri);
@@ -89,7 +89,7 @@ DLL 的内容就是 IL 指令，CIL 类似一个面向对象的组合语言，�
 
 ### 简单使用
 
-```c#
+```csharp
 ILRuntime.Runtime.Enviorment.AppDomain appdomain;
 
 void Start()
@@ -148,7 +148,7 @@ void OnILRuntimeInitialized()
 
 CLR 重定向方法的编写需要对 ILRuntime 的底层非常了解，并且工作量巨大，因为热更新 DLL 不可避免调用主工程和 Unity 的接口，这样就需要实现很多重定向的方法。幸运的是 ILRuntime 提供了工具来自动生成 CLR 绑定代码。
 
-```c#
+```csharp
 [MenuItem("ILRuntime/Generate CLR Binding Code by Analysis")]
 static void GenerateCLRBindingByAnalysis()
 {

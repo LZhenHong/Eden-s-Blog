@@ -12,7 +12,7 @@ isTop: false
 
 每个基于 C 语言的程序的入口都是 main 函数，iOS App 也没有区别。开发 iOS 你不需要自己编写 main 函数，Xcode 的模版项目会自动实现，一般情况下你不需要修改 main 函数。main 函数会将控制权交给 UIKit framework。`UIApplicationMain` 函数会创建应用的核心对象，从 SB 文件中加载 UI 界面，启动 App 的 runloop 等等。
 
-``` 
+```objectivec
 #import "AppDelegate.h"
  
 int main(int argc, char * argv[]) {

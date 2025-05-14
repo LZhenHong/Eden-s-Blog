@@ -16,7 +16,7 @@ isTop: false
 在 Cocos 的热更新中有一个重要的 Manifest 文件，检查热更新和下载热更新相关的信息都包含在这个文件中，App 包内有一个本地的 Local Manifest，同时里面有个 "remoteManifestUrl" 字段指向远程的 Remote Manifest，这个 Remote Manifest 当有热更新资源时会更新，Cocos 检查有新的热更新就会下载这个 Remote Manifest，然后判断是否新的热更新，有的话则下载新的热更新文件。随后将 Remote Manifest 缓存成 Cache Manifest。
 
 ### Local Manifest
-```
+```json
 {
   "packageUrl": "http://xxx.com/",
   "remoteManifestUrl": "http://xxx.com/AppUpdate/project?version=1.0.0",
@@ -28,7 +28,7 @@ isTop: false
 这个一般是 App 包内的 Manifest 文件，这里主要申明的是 Version，热更新资源 CDN 地址， Remote Manifest 地址和 Version Url。
 
 ### Remote Manifest
-```
+```json
 {
     "packageUrl": "http://xxx.com/cdn",
     "remoteManifestUrl": "http://xxx.com/AppUpdate/project?version=1.0.0",

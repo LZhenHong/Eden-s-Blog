@@ -62,7 +62,7 @@ UIScrollView 通过改变 bounds 的 origin 值来滚动它的内容。为了让
 
 大概的代码实现，数值是我随便给的，运行结果不一定和上面一样。
 
-```
+```objectivec
 self.view.backgroundColor = [UIColor blueColor];
   
 UIView *redView = [[UIView alloc] init];
@@ -84,7 +84,7 @@ yellowView.backgroundColor = [UIColor yellowColor];
 
 ### Autolayout in UIScrollView
 
-```
+```objectivec
 self.view.backgroundColor = [UIColor blueColor];
     
 self.scrollView = [[UIScrollView alloc] init];

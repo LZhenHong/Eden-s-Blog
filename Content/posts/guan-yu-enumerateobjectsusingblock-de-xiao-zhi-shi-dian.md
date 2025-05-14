@@ -23,7 +23,7 @@ isTop: false
 
 这种不需要多说，直接上代码
 
-```
+```objectivec
 NSArray *names = @[@"lzh", @"ysh", @"yys"];
 for (int i = 0; i < names.count; ++i) {
    NSString *name = names[i];
@@ -35,7 +35,7 @@ for (int i = 0; i < names.count; ++i) {
 
 这种相信会 ObjC 的人都会，也直接上代码。这里本质是使用了 NSFastEnumeration，在 **[这里][3]** 了解更多
 
-```
+```objectivec
 NSArray *names = @[@"lzh", @"ysh", @"yys"];    
 for (NSString *name in names) {
    NSLog(@"%@", name);
@@ -50,7 +50,7 @@ for (NSString *name in names) {
 
 * stop 参数的作用：停止遍历，但是会执行完 block 的代码才会退出循环
 
- ```
+ ```objectivec
 NSArray *names = @[@"lzh", @"ysh", @"yys"];
 [names enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     if ([obj isEqualToString:@"lzh"]) {
@@ -65,7 +65,7 @@ NSArray *names = @[@"lzh", @"ysh", @"yys"];
 
 * return 的作用：相当于前两种循环的 `continue`，会跳过此次循环
 
-```
+```objectivec
 NSArray *names = @[@"lzh", @"ysh", @"yys"];
 [names enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     if ([obj isEqualToString:@"lzh"]) {
@@ -80,7 +80,7 @@ NSArray *names = @[@"lzh", @"ysh", @"yys"];
 
 * 马上退出循环
 
-```
+```objectivec
 NSArray *names = @[@"lzh", @"ysh", @"yys"];
 [names enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     if ([obj isEqualToString:@"ysh"]) {
@@ -107,7 +107,7 @@ NSArray *names = @[@"lzh", @"ysh", @"yys"];
 
 ##### 倒序遍历
 
-```
+```objectivec
 NSArray *strings = @[@"1", @"2", @"3"];
 for (NSString *string in [strings reverseObjectEnumerator]) {
     NSLog(@"%@", string);
@@ -116,7 +116,7 @@ for (NSString *string in [strings reverseObjectEnumerator]) {
 
 `reverseObjectEnumerator` 这个方法只会在循环第一次的调用。
 
-```
+```objectivec
 [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(Sark *sark, NSUInteger idx, BOOL *stop) {
     [sark doSomething];
 }];
@@ -130,7 +130,7 @@ for (NSString *string in [strings reverseObjectEnumerator]) {
 
 使用 block 来枚举时，block 内部会自动添加一个 autoreleasepool：
 
-```
+```objectivec
 [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
     // 这里有一个 @autoreleasepool 包围着
 }];

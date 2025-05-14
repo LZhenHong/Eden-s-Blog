@@ -25,7 +25,7 @@ isTop: false
 
 ### 第二种：3 个指针
 
-```
+```c
 Node *list = createList();
 Node *p, *q, *k;
 p = list->next;
@@ -47,7 +47,7 @@ list->next = q; // 将头节点的 next 指针指向新链表的首节点
 
 这种方法就是将节点依次插入到头节点后面。
 
-```
+```c
 Node *list = createList();
 Node *p = list->next;
 Node *q;
@@ -68,7 +68,7 @@ while (p->next) {
 
 我们试想一下一个链表 `A -> B -> C -> D`，要将这个链表反转，我们可以先将 `B -> C -> D` 反转，然后再将 `A` 与三个反转好的链表进行反转，这样就完成链表的反转。要 `B-> C -> D` 反转，我们可以先反转 `C -> D`，然后再将 `B` 与反转好的 `C` 与 `D` 进行反转。这样看来我们就将问题抽象成相识的子问题。
 
-```
+```c
 static Node *newFisrtNode = NULL;
 Node *reverseLinkList(Node *list) {
     // 只有一个节点，直接返回，并且这里应该是新链表的第一个节点

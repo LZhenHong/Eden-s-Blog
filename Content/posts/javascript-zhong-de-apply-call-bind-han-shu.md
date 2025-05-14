@@ -31,7 +31,7 @@ isTop: false
 
 - 不带参数的函数使用 `apply` ：
 
-  ```
+  ```javascript
   var name = "lzh";
 
   var o = {
@@ -48,7 +48,7 @@ isTop: false
 
 - 多个参数的函数使用 `apply`，将多个参数打包成数组作为第二个参数传入 `apply` 函数：
 
-  ```
+  ```javascript
   var name = "lzh";
 
   var o = {
@@ -69,7 +69,7 @@ isTop: false
 
 - 不带参数的函数使用 `call`，这里跟 `apply` 的使用基本上没有区别：
 
-  ```
+  ```javascript
   var name = "lzh";
 
   var o = {
@@ -86,7 +86,7 @@ isTop: false
 
 - 多个参数的函数使用 `call`，这里跟 `apply` 有不同，调用函数的参数传入方式，`apply` 函数是利用数组，`call` 函数的参数是需要逐个传入：
 
-  ```
+  ```javascript
   var name = "lzh";
 
   var o = {
@@ -107,7 +107,7 @@ isTop: false
 
 我们看一个**[面试题][5]**来看一下这两个函数的具体区别。这个面试题的题目是：「定义一个 log 函数，然后它可以代理 `console.log` 的方法」。我们首先想到的是在 log 函数中直接调用 `console.log` 方法，这种方式在只有一个参数的情况下能满足要求，但是有个参数，这个方式就只能打印第一个参数。
 
-```
+```javascript
 function log(msg)　{
     console.log(msg);
 }
@@ -118,7 +118,7 @@ log("lzh", "eden"); // lzh
 
 更好的方式是使用 `apply` 函数，将 log 函数的隐藏参数 `arguments` 作为参数传递给 `console.log` 函数。下面代码是实现方式：
 
-```
+```javascript
 function log() {
     // 在这里我有将参数列表中的 console 替换成其他对象，结果虽然是正确的
     // 但是最好还是使用 console，因为不知道函数内部究竟有没有使用 console
@@ -130,7 +130,7 @@ log("lzh", "eden"); // lzh eden
 
 这道面试题还有一部分：在每次输出的时候，在每一个 log 消息前添加一个 "(app)" 的前辍。
 
-```
+```javascript
 function log() {
     // var args = [].slice.call(arguments);
     var args = Array.prototype.slice.call(arguments); // 这里使用 apply 也是可以的
@@ -144,7 +144,7 @@ function log() {
 
 首先我们来看下面的代码：
 
-```
+```javascript
 var o = {
     name: "lzh",
     printName: function() {
@@ -162,7 +162,7 @@ f(); // eden
 
 上面的例子可以使用下面的代码来解决，这时 f 函数的上下文对象就是 o 而不是全局对象：
 
-```
+```javascript
 var o = {
     name: "lzh",
     printName: function() {
@@ -184,7 +184,7 @@ f(); // lzh
 
 这样的话并不能直接理解为 JS 函数的上下文对象是在调用时决定的，相反 JS 的作用域是采用静态作用域，函数的作用域是基于函数创建的位置。下面的例子就能证明：
 
-```
+```javascript
 // 来自 https://github.com/mqyqingfeng/Blog/issues/3
 var value = 1;
 function foo() {
@@ -206,7 +206,7 @@ bar(); // 1
 <img src='https://github.com/LZhenHong/BlogImages/blob/master/Contexts.png?raw=true' width=300 alt='JS Contexts.' />
 </div>
 
-```
+```javascript
 // HTTPService.js
 var httpService = (function() {
     var service = {};
@@ -237,7 +237,7 @@ var mainView = cc.Node.extend({
 
 假设在 mainView 的 `onEnter` 方法中发送网络请求获取数据，因为网络请求是异步的，所以我们获取数据之后的操作需要以回调的方式实现。这个回调的调用是在 `HTTPService.js` 类中注释 1 那，但是在回调中如果像注释那里那样 `this.data_ = data;` 这样实现会有问题，因为在 `HTTPService.js` 类中，上下文已经切换了，所以 this 值不再是 `Test.js` 中的 this 值，因此会报错，this 获取不到 data_。如果像注释 2 那样写，self 不再依赖上下文，当调用回调时，需要使用 self，会到注释 2 获取，而不是直接取当前上下文的值，这是因为 JS 使用的是静态作用域。当然还可以像下面这样使用 `bind` 来实现，这样回调里面的 this 一直就会是 `Test.js` 中的 this。
 
-```
+```javascript
 // Test.js
 var mainView = cc.Node.extend({
     data_: null,
@@ -254,7 +254,7 @@ var mainView = cc.Node.extend({
 ### bind 函数小提示
 在[深入浅出妙用 Javascript 中 apply、call、bind][2]这篇博客中还提到，多次使用 `bind` 函数没有效果，看下面的例子：
 
-```
+```javascript
 // 来自 http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html
 var bar = function() {
     console.log(this.x);

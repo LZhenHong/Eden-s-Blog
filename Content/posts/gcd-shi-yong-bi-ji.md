@@ -41,7 +41,7 @@ GCD 中要执行的操作都可以叫做任务(下载图片、下载文本等)�
 
 ### 串行队列同步提交
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("com.yys.test", DISPATCH_QUEUE_SERIAL);
 dispatch_sync(queue, ^{
     // 下载文件，图片等资源
@@ -55,7 +55,7 @@ dispatch_sync(queue, ^{
 
 ### 串行队列异步提交
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("com.yys.test", DISPATCH_QUEUE_SERIAL);
 dispatch_async(queue, ^{
     // 下载文件，图片等资源
@@ -69,7 +69,7 @@ dispatch_async(queue, ^{
 
 ### 并行队列同步提交
     
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("com.yys.test", DISPATCH_QUEUE_CONCURRENT);
 dispatch_sync(queue, ^{
     // 下载文件，图片等资源
@@ -83,7 +83,7 @@ dispatch_sync(queue, ^{
 
 ### 并行队列异步提交
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_queue_create("com.yys.test", DISPATCH_QUEUE_CONCURRENT);
 dispatch_async(queue, ^{
     // 下载文件，图片等资源
@@ -100,7 +100,7 @@ dispatch_async(queue, ^{
 
 ### 主队列同步提交
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_main_queue();
 dispatch_sync(queue, ^{
     // 下载文件，图片等资源
@@ -114,7 +114,7 @@ dispatch_sync(queue, ^{
 
 ### 主队列异步提交
 
-```
+```objectivec
 dispatch_queue_t queue = dispatch_get_main_queue();
 dispatch_async(queue, ^{
     // 下载文件，图片等资源
@@ -127,7 +127,7 @@ dispatch_async(queue, ^{
 
 ### dispatch\_after: 延后执行
 
-```
+```objectivec
 dispatch_time_t time ＝ dispatch_time(DISPATCH_TIME_NOW, (int64_t)(需要延后的时间 * NSEC_PER_SEC));
 dispatch_after(time, dispatch_get_main_queue(), ^{
    // 需要延后执行的代码
@@ -152,7 +152,7 @@ dispatch_after(time, dispatch_get_main_queue(), ^{
 
 ### dispatch\_once: 只执行一次某段代码
 
-```
+```objectivec
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
     // 只需要执行一次的代码
@@ -165,7 +165,7 @@ dispatch_once(&onceToken, ^{
 ### dispatch\_group
 使用场景：当你执行多个异步任务，并且要等到所有的任务执行完做某些操作时
 
-```
+```objectivec
 dispatch_group_t group = dispatch_group_create();
 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 提交任务A
@@ -186,7 +186,7 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 
 ### dispatch\_barrier\_sync 和 dispatch\_barrier\_async
 
-```
+```objectivec
 dispatch_barrier_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 提交任务
 });
@@ -194,5 +194,3 @@ dispatch_barrier_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_
 
 * 这两个函数提交的任务，在执行时会阻塞后面的任务，在这一时间内，只有这一任务在执行，后续任务只有在这个任务执行完成后才能执行，并且所有在这个任务之前的任务一定会先于这个任务完成。
 * dispatch\_barrier\_sync 和 dispatch\_barrier\_async 只在自己创建的并发队列上有效，在全局并发队列、串行队列上，效果跟 dispatch\_sync、 dispatch\_async 效果一样。
-
-

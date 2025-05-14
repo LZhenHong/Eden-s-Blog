@@ -21,7 +21,7 @@ ARC 是编译器的特性，在编译的时候自动插入管理引用计数的�
 
 对一个对象进行强引用，表示拥有该对象，就像在 MRC 下进行 `retain` 是一样的，当一个对象没有强引用指针引用时，这个对象就再不被拥有，这时这个对象就会被销毁。
 
-```
+```objectivec
 NSObject * __strong objc = [[NSObject alloc] init]; == NSObject * objc = [[NSObject alloc] init];
 ```
 
@@ -31,7 +31,7 @@ NSObject * __strong objc = [[NSObject alloc] init]; == NSObject * objc = [[NSObj
 
 对一个对象进行弱引用，不会拥有该对象，不会改变这个对象的内存周期，即不会改变该对象的引用计数。当被引用的对象被销毁时，weak 指针会自动置空，这样就可以避免野指针访问错误。常用来解决循环引用问题。
 
-```
+```objectivec
 __typeof__(self) __weak weakSelf = self;
 ```
 
@@ -41,7 +41,7 @@ __typeof__(self) __weak weakSelf = self;
 
 跟 `__weak` 相似，不会拥有指向的对象。但是指向的对象被销毁时不会置 nil，就会变成悬挂指针，即会发生野指针错误。
 
-```
+```objectivec
 __typeof__(self) __unsafe_unretained weakSelf = self;
 ```
 
@@ -51,13 +51,13 @@ __typeof__(self) __unsafe_unretained weakSelf = self;
 
 使用这个关键字主要为了延长对象的存活周期，不要被过早的销毁。这个关键字常用来声明对象的指针。
 
-```
+```objectivec
 NSError * __autoreleasing error = nil;
 ```
 
 即使我们没有使用 `__autoreleasing` 声明，编译器还是会在编译器时期帮我们自动添加。
 
-```mm
+```objectivec
 NSError *error; 
 NSError *__autoreleasing tempError = error;
 [data writeToFile:filename options:NSDataWritingAtomic error:&tempError]；
@@ -65,7 +65,7 @@ NSError *__autoreleasing tempError = error;
 
 在这里有个问题需要注意：
 
-```
+```objectivec
 - (BOOL)doSomethingWithDictionary:(NSDictionary *)dictionary error:(NSError * __autoreleasing *)error {
     // NSError * __block temp = nil;
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -102,13 +102,13 @@ NSError *__autoreleasing tempError = error;
 
 1. 主动断开循环引用：在 block 使用完，主动将 block 清空，这样就可以断开 block 对内部持有对象的强引用，也就断开了循环引用。
 
-    ```
+    ```objectivec
     self.completionBlock = nil;
     ```
 
 2. 使用弱引用：弱引用不会影响引用对象的内存管理周期，并且在引用对象销毁时置 nil。
     
-    ```
+    ```objectivec
     __typeof(self) __weak weakSelf = self;
     self.completionBlock = ^{
       __typeof(weakSelf) strongSelf = weakSelf;
@@ -124,7 +124,7 @@ NSTimer Class Reference 指出 NSTimer 会强引用 target。并且官方的 Tim
 
 举一个例子，我们让 timer 在我们的 ViewController 中不断调用 `handleTimer` 方法.
 
-```
+```objectivec
 .h
 @property (nonatomic, strong) NSTimer *timer;
 
