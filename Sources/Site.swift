@@ -15,7 +15,7 @@ struct Website {
 
 struct EdenBlog: Site {
   var name = "Eden's Blog"
-  var titleSuffix = " – Just Someone"
+  var titleSuffix = " - Just Someone"
   var url = URL(static: "https://lzhenhong.github.io")
   var builtInIconsEnabled = true
 
@@ -28,6 +28,12 @@ struct EdenBlog: Site {
 
   var homePage = Home()
   var layout = MainLayout()
+
+  var staticPages: [any StaticPage] {
+    Archive()
+    About()
+    AdvancedCocosCreator()
+  }
 
   var articlePages: [any ArticlePage] {
     MarkdownArticleLayout()

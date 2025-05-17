@@ -3,7 +3,7 @@ import Ignite
 
 struct Home: StaticPage {
   @Environment(\.articles) var articles
-  var title = "Home"
+  var title = "博客"
 
   var body: some HTML {
     List {
