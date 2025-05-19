@@ -15,9 +15,10 @@ struct Navigator: HTML {
       Link("关于", target: About())
     } logo: {
       Link(target: "/") {
-        Image("/images/avatar.png", description: "Avatar")
+        Image("/images/favicon.jpg", description: "Avatar")
           .resizable()
           .frame(width: 32, height: 32)
+          .cornerRadius(10)
           .margin(.trailing, 10)
         Span("Eden's Blog")
           .fontWeight(.bold)
