@@ -5,8 +5,7 @@ struct About: StaticPage {
   var title = "我"
 
   var workYear: Int {
-    let currentYear = Calendar.current.component(.year, from: Date())
-    return currentYear - 2017
+    return Date().year - 2017
   }
 
   var body: some HTML {

@@ -25,7 +25,7 @@ struct SocialFooter: HTML {
         }
       }
     }
-    .margin(.top, .xLarge)
     .font(.title2)
+    .padding(.vertical, .medium)
   }
 }

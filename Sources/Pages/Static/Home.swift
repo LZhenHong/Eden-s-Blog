@@ -6,10 +6,10 @@ struct Home: StaticPage {
   var title = "博客"
 
   var body: some HTML {
-    List {
-      ForEach(articles.all) { article in
-        Link(article)
-      }
+    Grid(articles.all, alignment: .top) { article in
+      ArticlePreview(for: article)
+        .width(3)
+        .margin(.bottom)
     }
   }
 }
