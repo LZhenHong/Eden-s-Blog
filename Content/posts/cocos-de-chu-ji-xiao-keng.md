@@ -3,10 +3,8 @@ title: Cocos 的初级小坑
 date: 2017-08-25 12:39
 tags: Cocos
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 又是很久没有写博客了，所以再次写一篇来凑凑字数 😜，主要还是把自己最近刚知道的知识记录下来，方便以后来查看。
 
 因为开始做游戏开发，所以就开始学习 Cocos 相关的内容。最近在几个地方踩了坑，虽然是很小的知识点，但是记录下来也算是记录成长的历程 😶😶。

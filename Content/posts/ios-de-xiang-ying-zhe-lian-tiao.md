@@ -3,10 +3,8 @@ title: iOS 的响应者链条 ⛓️
 date: 2016-12-03 14:26
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 响应者链条在刚学 iOS 的时候有学过，但是平常开发也很少去仔细思考，也没有发生过很大的错误，所以就更加不会去考虑 What Under The Hood。
 
 在实习的时候要做自定义 transition。我在 `UITransitionView` 上添加了一个 subview 作为背景 view，点击这个背景的 view，要 dismiss 掉 present 的 ViewController，给背景的 view 添加了一个 `UITapGestureRecognizer`，但是背景的 view 就是死活不响应点击。来来回回折腾了好久才找出原因：事件根本就没有传递给背景的 view 😭😭。

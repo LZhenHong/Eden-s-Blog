@@ -3,9 +3,6 @@ title: 使自定义的类支持 iOS 的枚举方式
 date: 2017-02-27 09:43
 tags: ObjC
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 事先可以看一下 [Comparison of Objective-C Enumeration Techniques][1] 和 [NSFastEnumeration / NSEnumerator][2]，对比了 ObjC 中各种遍历方式。

@@ -3,9 +3,6 @@ title: UIScrollView And Autolayout
 date: 2016-11-12 12:00
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 这一篇介绍如何将 Autolayout 应用到 UIScrollView 上。

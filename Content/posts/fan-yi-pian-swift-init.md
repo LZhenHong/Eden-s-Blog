@@ -3,14 +3,11 @@ title: 翻译篇 - Swift init()
 date: 2016-08-28 05:16
 tags: Swift
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 *PS：翻译水平有限，推荐看原文*
 
-[下载 Playgroung 文件](http://merowing.info/2015/11/Initializers.playground.zip)
+[下载 Playground 文件](http://merowing.info/2015/11/Initializers.playground.zip)
 
 [原文链接.](http://merowing.info/2015/11/swift-init/)
 

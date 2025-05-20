@@ -3,9 +3,6 @@ title: 设备卡顿产生的原因
 date: 2018-01-06 13:56
 tags: Other
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 虽然当下的设备越来越强大，处理速度也越来越快，显示效果越来越好。但是如果处理不好，再强大的设备还是会有卡顿的可能性，所以了解卡顿产生的原因是很有必要的。

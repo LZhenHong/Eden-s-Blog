@@ -3,10 +3,8 @@ title: UIResponder 拾遗：inputView 和 inputAccessoryView
 date: 2016-12-08 21:34
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 前几天在看响应者链条的时候，看到 `UIResponder` 有两个很有用的属性，但是自己不熟悉，就是 `inputView` 和 `inputAccessoryView`。原来自己练手的时候，需要这样的功能，但是自己不知道这两个属性，导致自己花费了很多时间。所以，就写下这篇，算是对不知道的知识的补充。
 
 <!-- more -->

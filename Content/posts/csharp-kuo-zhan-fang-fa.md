@@ -3,9 +3,6 @@ title: C# 扩展方法
 date: 2022-07-10 02:09
 tags: C#
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 为什么想要把 C# 的方法扩展单独拿出来讲一下呢？

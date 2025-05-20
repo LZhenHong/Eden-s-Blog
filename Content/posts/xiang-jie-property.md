@@ -3,10 +3,8 @@ title: 详解 property
 date: 2016-08-28 05:03
 tags: ObjC
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 在利用 Objective-C 的开发中，我们需要创建许多的类，类包括成员变量和成员方法／类方法 (Objective-C 中没有类成员变量)。但是大部分 Obj-C 的类文件中都看不到成员变量的申明，我们更多看到的是形如： `@property (nonatomic, copy) NSString *name;` 。这是因为当我们这样写之后，Xcode 会自动为我们添加成员变量，并生成相应成员变量的存取方法。
 
 <!-- more -->

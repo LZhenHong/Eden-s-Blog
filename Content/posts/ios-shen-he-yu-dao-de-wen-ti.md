@@ -3,9 +3,6 @@ title: iOS 审核遇到的问题
 date: 2020-06-04 09:49
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 最近游戏上线了 iOS 版本，期间来来回回提审了 2、3 次，最终没有经历太多波折顺利上线，写下这篇文章记录下审核期间遇到的问题，方便以后查看和提前避免一些问题。

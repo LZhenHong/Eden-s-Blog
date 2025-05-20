@@ -3,9 +3,6 @@ title: App Programming Guide for iOS - The App Life Cycle
 date: 2016-11-03 19:50
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 ## The Main Function

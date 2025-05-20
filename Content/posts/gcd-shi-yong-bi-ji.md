@@ -3,10 +3,8 @@ title: GCD 使用笔记
 date: 2016-09-19 10:05
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 在我年少无知的时候其实就已经写过一篇关于 GCD 的文章，自己现在拿出来看觉得有点羞愧，发现自己对 GCD 的认识基本上还是停留在一年前的水平，所以自己开始慢慢补上 GCD 的知识。
 
 将以前写的东西拿出来~~充字数~~提醒自己。

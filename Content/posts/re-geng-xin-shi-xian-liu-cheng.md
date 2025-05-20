@@ -3,9 +3,6 @@ title: 热更新实现流程
 date: 2020-04-03 00:59
 tags: Cocos
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 最近游戏的热更新出了一些问题，导致崩溃率有点上升，并且热更新有些文件没有生效。游戏中用的热更新模块是 Cocos 引擎提供的，就花了点时间去翻了 Cocos 的源码文件 AssetsManagerEx.cpp，了解了 Cocos 引擎处理热更新的流程以及问题，也借此机会思考下热更新的处理逻辑。

@@ -3,9 +3,6 @@ title: Javascript 中的 apply/call/bind 函数
 date: 2017-07-05 23:23
 tags: JS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 有很长一段时间没有写博客了，前一段时间做毕设，写论文，改论文，答辩，拍毕业照... 很多很多不喜欢的事情，再加上那段时间沉不下心，就很少有机会去写博客了。

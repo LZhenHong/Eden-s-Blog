@@ -3,10 +3,8 @@ title: 整洁的代码
 date: 2022-04-18 15:34
 tags: Other
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 在说到写代码这件事之前，可以先来聊聊程序员这份职业。我不太清楚大家对于程序员这份职业的理解是什么，我简单说下我对程序员认知的变化吧，或者说我对职业的认知。
 
 <!-- more -->

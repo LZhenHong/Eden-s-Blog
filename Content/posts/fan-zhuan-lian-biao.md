@@ -3,9 +3,6 @@ title: 反转链表
 date: 2016-10-16 22:28
 tags: DS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 背景：今天百度面试被问到线性链表的反转，~~哈哈哈哈哈~~ 不会，数据结构算法之类的永远是心中的伤痛，自己慢慢想啊想，还是想出了一个比较 low 的解决方法，回到家自己上网搜了一下解决方法，有四种解决方法之多：

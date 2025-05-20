@@ -3,10 +3,8 @@ title: Promise 与动画
 date: 2022-07-02 23:45
 tags: TypeScript
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 学习编程语言的过程都是相似的，先介绍语言基础类型、流程控制、函数格式等。编程的过程基本上就是流程的控制，判断状态，执行不同的逻辑，类、对象、方法是行为的封装。我们在刚接触编程会写很多 if-else、switch，为了减少 if-else 和 switch 的使用，会有继承、设计模式的应用。
 
 <!-- more -->
@@ -75,7 +73,7 @@ function sendRequest(success: (data: any) => void, failure: (error: any) => void
 }
 ```
 
-Promise 的解决方案跟异步回调的处理方式貌似没有太大的区别，但是这只是一个异步处理，如果有多个异步处理，Promise 是可以直接在 then 方法里返回下一个异步处理的 Promise ，这样异步处理就可以顺序执行。
+Promise 的解决方案跟异步回调的处理方式貌似没有太大的区别，但是这只是一个异步处理，如果有多个异 Async 函数，Promise 是可以直接在 then 方法里返回下一个异步处理的 Promise ，这样异步处理就可以顺序执行。
 
 在异步处理的流程里，Promise 可以清晰表明每一步异步处理。可以很方便调整异步处理的顺序，也可以快速新增或删除某一个异步处理，这是在回调方式中难以办到的。
 
@@ -182,5 +180,5 @@ function playerMoveAnimationAsync(player: Player) {
 
 # 最后
 
-在程序的世界里，是没有银弹可以解决一切问题，只有针对于特定需求的最佳解决方案。所以，多学习了解各种技术，是程序员进阶的必不可少的步骤。
+在程序的世界里，是没有银弹可以解决一切问题，只有针對特定需求的最佳解决方案。所以，多学习了解各种技术，是程序员进阶的必不可少的步骤。
 

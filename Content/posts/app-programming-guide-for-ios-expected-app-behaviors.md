@@ -3,9 +3,6 @@ title: App Programming Guide for iOS - Expected App Behaviors
 date: 2016-11-01 13:02
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 这一篇主要是总结自己在看 App Programming Guide for iOS 的一些收获。大部分内容都是来自 App Programming Guide for iOS。

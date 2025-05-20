@@ -3,10 +3,8 @@ title: ARC 的内存管理
 date: 2017-03-14 09:39
 tags: ObjC
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 ObjC 是使用引用计数来管理对象内存的，关于引用计数更加详细的解释，可以看 [理解 iOS 的内存管理][5]，这篇文章还讲了 ARC 下可能存在的内存管理问题。
 
 ARC 是编译器的特性，在编译的时候自动插入管理引用计数的代码，给 ObjC 对象提供自动内存管理，并生成相应的 `dealloc` 方法。ARC 可以让你更加专注于编写代码的逻辑而不是去管理内存，但是在 ARC 下遵循 ObjC 的命名规则就显得很重要了。

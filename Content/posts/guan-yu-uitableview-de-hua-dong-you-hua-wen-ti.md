@@ -3,9 +3,6 @@ title: 关于 UITableView 的滑动优化问题
 date: 2016-08-31 19:02
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 UITableView 应该是 iOS 开发中最重要的控件，当我们要展示多个相似的模型数据的时候，毫无疑问 UITableView 是最好的选择，Apple 已经将 UITableView 的优化做到非常极致了，满足我们简单的模型数据展示基本上是没有问题的。但是很多时候，我们展示的不是简简单单的文字数据，还有其他对性能消耗很大的数据，例如：图片等。在数据不多的情况下，遵循 UITableView 的标准使用方式就能满足要求。像 Twitter / Weibo 这样的数据模型很复杂，数量也很多的情况下，我们就需要通过各种手段来优化 UITableView 的滚动流畅度。

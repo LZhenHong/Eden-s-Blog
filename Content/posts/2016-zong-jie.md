@@ -3,10 +3,8 @@ title: 2016 总结
 date: 2016-12-31 23:59
 tags: Other
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 因为自己现在大四了，而且今年也发生了挺多的事情，第一次有想写总结的想法。所以就趁着 2016 年的尾巴来写一篇总结。
 
 <!-- more -->

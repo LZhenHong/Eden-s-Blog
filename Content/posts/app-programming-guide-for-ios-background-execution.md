@@ -3,10 +3,8 @@ title: App Programming Guide for iOS - Background Execution
 date: 2016-11-25 20:27
 tags: iOS
 published: true
-hideInList: false
-feature: 
-isTop: false
 ---
+
 我们知道 iOS App 有五种状态：not running／inactive／active／background／suspended，当用户按下 Home 键的时候，App 就会进入 background 状态，随后进入 suspended 状态。在 suspended 状态下，我们没有办法对 App 进行任何操作。所以，我们会尽量在 background 状态下就做好 App 的一些清理等操作，来使 App 有进入 suspended 的准备。但是，iOS 系统分配给 App 的 background 状态下的时间是有限的，我们需要做一些自定义的操作来向 iOS 系统申请更多的后台时间，或者直接常驻后台。例如一些音乐类 App，当我们退出这类 App，我们还是可以听到 🎵 的播放，这些 App 就属于常驻后台的 App。
 
 <!-- more -->
