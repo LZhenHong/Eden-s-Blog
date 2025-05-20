@@ -14,12 +14,14 @@ struct Website {
 }
 
 struct EdenBlog: Site {
-  var name = "Eden's Blog"
+  var name: String = .title
   var titleSuffix = " - Just Someone"
   var url = URL(static: "https://lzhenhong.github.io")
   var builtInIconsEnabled = true
 
-  var author = "Eden"
+  var author: String = .author
+  var favicon = URL(string: .favicon)
+  var language: Language = .chineseSimplified
 
   var syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [
     .swift, .objectiveC, .c, .cSharp, .python,

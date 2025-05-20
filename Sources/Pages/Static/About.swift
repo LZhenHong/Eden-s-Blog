@@ -11,13 +11,13 @@ struct About: StaticPage {
   var body: some HTML {
     Section {
       Group {
-        Image("/images/avatar.png", description: "头像")
+        Image(.avatar, description: "头像")
           .resizable()
           .frame(width: 180)
           .margin(.bottom, .medium)
 
         HStack(alignment: .bottom) {
-          Text("Eden")
+          Text(String.author)
             .font(.title1)
             .fontWeight(.bold)
 

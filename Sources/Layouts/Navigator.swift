@@ -15,12 +15,12 @@ struct Navigator: HTML {
       Link("关于", target: About())
     } logo: {
       Link(target: "/") {
-        Image("/images/favicon.jpg", description: "Avatar")
+        Image(.favicon, description: "Avatar")
           .resizable()
           .frame(width: 32, height: 32)
           .cornerRadius(10)
           .margin(.trailing, 10)
-        Span("Eden's Blog")
+        Span(String.title)
           .fontWeight(.bold)
       }
       .foregroundStyle(.white)
